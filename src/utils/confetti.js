@@ -1,7 +1,7 @@
 import confetti from 'https://esm.run/canvas-confetti@1'
 
 // Basic
-export const basicConfetti = () => {
+const basicConfetti = () => {
   confetti({
     particleCount: 200,
     spread: 70,
@@ -26,7 +26,7 @@ const shootConfetti = (particleCount, scalar, shapes) => {
   })
 }
 
-export const starConfetti = () => {
+const starConfetti = () => {
   setTimeout(() => {
     shootConfetti(40, 1.2, ['star'])
     shootConfetti(10, 0.75, ['circle'])
@@ -46,7 +46,7 @@ const randomInRange = (min, max) => {
   return Math.random() * (max - min) + min
 }
 
-export const fireworkConfetti = () => {
+const fireworkConfetti = () => {
   const duration = 3 * 1000
   const animationEnd = Date.now() + duration
   const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 }
@@ -62,4 +62,14 @@ export const fireworkConfetti = () => {
     confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } })
     confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } })
   }, 250)
+}
+
+export const handleConfetti = count => {
+  if (count % 1000 === 0) {
+    fireworkConfetti()
+  } else if (count % 500 === 0) {
+    starConfetti()
+  } else if (count % 100 === 0) {
+    basicConfetti()
+  }
 }
