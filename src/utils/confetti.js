@@ -5,6 +5,7 @@ const basicConfetti = () => {
   confetti({
     particleCount: 200,
     spread: 70,
+    colors: ['#ffffff', '#f4858a', '#ab6fef', '#dbc5eb'],
     origin: {
       y: 0.325
     }

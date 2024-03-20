@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
@@ -15,24 +19,60 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: #23252c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all ease 0.1s;
 }
 
-.box {
-  position: relative;
-  width: 70vw;
-  height: 140vw;
+.timer {
+  position: absolute;
+  top: 0;
+  height: 40vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  > p {
+    font-family: 'Mochiy Pop P One', sans-serif;
+    color: #fff;
+    font-size: 7vw;
+    user-select: none;
+    margin: 0;
+  }
+
+  > button {
+    user-select: none;
+    color: #fff;
+    background-color: #ff8400;
+    border: none;
+    margin-top: 6vw;
+    font-size: 3.25vw;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    border-radius: 1vw;
+    padding: 1.5vw 3vw;
+    &.isPause {
+      background-color: #3660f7;
+    }
+  }
+}
+
+.wrapper {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mcgraw {
+  width: 65vw;
+  height: 130vw;
   background-image: url(./assets/mcgraw.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
-  button {
+  transition: all ease 0.1s;
+  p {
     position: absolute;
-    top: 60%;
+    top: 57%;
     left: 52%;
     transform: translateX(-50%);
     background: none;
